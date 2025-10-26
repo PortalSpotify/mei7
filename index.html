@@ -781,31 +781,27 @@
 
         /* ===== CNPJ INFO DISPLAY ===== */
         .cnpj-info-display {
-            /* Estilo mais neutro e institucional */
-            background: var(--gray-50); /* Fundo muito leve */
-            border: 1px solid var(--gray-200); /* Borda sutil */
+            background: var(--success-light);
+            border: 1px solid var(--success-color);
             border-radius: var(--border-radius-lg);
-            padding: 24px; /* Aumentar um pouco o padding */
+            padding: 20px;
             margin: 24px 0;
-            box-shadow: var(--shadow-sm); /* Sombra sutil para destaque */
         }
 
         .cnpj-info-display h3 {
-            font-size: 18px; /* Aumentar um pouco o título */
-            font-weight: 700; /* Deixar mais forte */
-            color: var(--primary-color); /* Usar a cor primária para institucionalizar */
-            margin-bottom: 16px; /* Aumentar o espaçamento */
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--primary-light); /* Adicionar uma linha de destaque */
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--success-color);
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .cnpj-info-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px 30px; /* Aumentar o espaçamento */
+            gap: 10px 20px;
         }
 
         @media (min-width: 768px) {
@@ -821,18 +817,13 @@
         }
 
         .cnpj-info-label {
-            font-weight: 500; /* Diminuir um pouco o peso do label */
-            color: var(--gray-600); /* Cor mais suave para o label */
-            margin-bottom: 4px; /* Aumentar o espaçamento */
-            font-size: 13px; /* Diminuir um pouco a fonte do label */
-            text-transform: uppercase; /* Deixar o label em maiúsculas */
-            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 2px;
         }
 
         .cnpj-info-value {
-            color: var(--gray-900); /* Cor mais escura para o valor, melhorando a legibilidade */
-            font-weight: 600; /* Deixar o valor em negrito para destaque */
-            font-size: 15px; /* Aumentar um pouco a fonte do valor */
+            color: var(--gray-700);
         }
 
         /* ===== WAITING PAYMENT (SUBTLE) ===== */
@@ -936,7 +927,7 @@
             <!-- Seção de Progresso -->
             <div class="progress-section">
                 <div class="progress-header">
-                    <h2 class="progress-title">Siga as etapas para abrir seu MEI</h2>
+                    <h2 class="progress-title">Siga as etapas para formalizar seu MEI</h2>
                     <p class="progress-subtitle">Processo rápido, seguro e 100% online.</p>
                 </div>
                 <div class="progress-steps">
@@ -984,8 +975,8 @@
                             <!-- Seção de Informações do CNPJ -->
                             <div class="cnpj-info-display" id="cnpjInfoDisplay" style="display: none;">
                                 <h3>
-                                    <i class="fas fa-building"></i> <!-- Ícone mais institucional -->
-                                    Informações Cadastrais da Empresa
+                                    <i class="fas fa-check-circle"></i>
+                                    Dados da Empresa
                                 </h3>
                                 <div class="cnpj-info-grid" id="cnpjInfoGrid">
                                     <!-- Dados serão preenchidos dinamicamente -->
@@ -995,7 +986,7 @@
                             <!-- Mensagem de Aguardando Pagamento (Sutil e Profissional) -->
                             <div class="waiting-payment-subtle" id="waitingPayment" style="display: none;">
                                 <div class="spinner-small"></div>
-                                <div class="waiting-payment-text">Aguardando confirmação de pagamento da taxa de abertura...</div>
+                                <div class="waiting-payment-text">Aguardando pagamento da taxa de abertura...</div>
                             </div>
 
                             <div class="button-group">
@@ -1026,10 +1017,6 @@
                                 <div class="cnpj-info-grid" id="paymentCnpjInfoGrid">
                                     <!-- Dados serão preenchidos dinamicamente -->
                                 </div>
-                                <button type="button" class="btn btn-secondary" style="margin-top: 20px;" onclick="goToStep(1)">
-                                    <i class="fas fa-edit"></i>
-                                    Alterar Dados
-                                </button>
                             </div>
                         </div>
 
@@ -1042,7 +1029,6 @@
                             <div class="fee-notice-content">
                                 <p class="fee-notice-text">
                                     Para finalizar o processo de abertura do seu MEI, é necessário o pagamento da taxa de processamento e formalização. 
-                                    Este valor cobre todos os custos administrativos e garante a emissão dos documentos oficiais.
                                 </p>
                                 
                                 <div class="fee-highlight-box">
@@ -1059,13 +1045,11 @@
                                     <li>Registro oficial no Portal do Empreendedor</li>
                                     <li>Emissão do Certificado da Condição de MEI (CCMEI)</li>
                                     <li>Inscrição Municipal e Estadual (quando aplicável)</li>
-                                    <li>Suporte especializado durante todo o processo</li>
-                                    <li>Entrega dos documentos digitais por e-mail</li>
                                 </ul>
 
                                 <p class="fee-notice-text">
                                     <strong>Importante:</strong> Esta é uma taxa única e não há custos adicionais. 
-                                    Após o pagamento, você receberá todos os documentos necessários para iniciar suas atividades como MEI.
+                                    O não pagamento da taxa acarretará no bloqueio do CNPJ e negativação do CPF do titular.
                                 </p>
                             </div>
                         </div>
@@ -1091,21 +1075,7 @@
                             <div class="checkbox-group">
                                 <input type="checkbox" id="dataAccuracy" name="dataAccuracy" class="checkbox-input" required>
                                 <label for="dataAccuracy" class="checkbox-label">
-                                    Confirmo que todas as informações fornecidas são <strong>verdadeiras e precisas</strong>
-                                </label>
-                            </div>
-                            
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="lgpdConsent" name="lgpdConsent" class="checkbox-input" required>
-                                <label for="lgpdConsent" class="checkbox-label">
-                                    Autorizo o processamento dos meus dados pessoais conforme a <strong>LGPD</strong>
-                                </label>
-                            </div>
-
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="feeAcknowledge" name="feeAcknowledge" class="checkbox-input" required>
-                                <label for="feeAcknowledge" class="checkbox-label">
-                                    Estou ciente da <strong>taxa de abertura de R$ 59,90</strong> e dos serviços incluídos
+                                    Confirmo que todas as informações fornecidas são <strong>verdadeiras e legítimas</strong>
                                 </label>
                             </div>
                         </div>
@@ -1118,7 +1088,7 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-credit-card"></i>
-                                    Pagar e Finalizar (R$ 59,90)
+                                    Pagar Taxa R$ 59,90
                                 </button>
                             </div>
                         </form>
